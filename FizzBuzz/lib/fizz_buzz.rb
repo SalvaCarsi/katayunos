@@ -17,20 +17,11 @@ class FizzBuzz
 
   def compute
     @result = @numbers.map do |number|
-      aux = ''
-      if number % 3 == 0
-        aux = 'fizz'
-      end
+      fizz_buzz_word = ''
+      if number % 3 == 0 then fizz_buzz_word = 'fizz' end
+      if number % 5 == 0 then fizz_buzz_word = "#{fizz_buzz_word}buzz" end
 
-      if number % 5 == 0
-        aux = aux + 'buzz'
-      end
-
-      if aux == ''
-        number
-      else
-        aux
-      end
+      if fizz_buzz_word == '' then number else fizz_buzz_word end
     end
   end
 end
