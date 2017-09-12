@@ -2,27 +2,29 @@ require 'fizz_buzz'
 
 RSpec.describe FizzBuzz, "#Katayuno FizzBuzz" do
 
-  # it "List the numbers from 1 to 100" do
-  #   fizzBuzz = FizzBuzz.new
-  #   expect(fizzBuzz.numbers.length).to eq (100)
-  #   aux = 1
-  #   fizzBuzz.numbers.each do |number|
-  #     expect(number).to eq aux
-  #     aux += 1
-  #   end
-  # end
+  it "List the numbers from 1 to 100" do
+    fb = FizzBuzz.new
+    expect(fb.numbers.length).to eq (100)
+    expect(fb.numbers[0]).to eq 1
+    expect(fb.numbers[99]).to eq 100
+  end
 
-  it "If the number is divisible by 3, write \"Fizz\" instead" do
-      result = FizzBuzz.new.compute
-      expect(result.length).to eq (100)
-      [*1..100].each do |number|
-        if number % 3 == 0
-          expect(result[number-1]).to eq 'fizz'
-        end
-        if number % 5 == 0
-          expect(result[number-1]).to eq 'buzz'
-        end
-      end
+  it "Writes fizz if the number is divisible by 3" do
+      fb = FizzBuzz.new
+      expect(fb.get(3)).to eq 'fizz'
+      expect(fb.get(6)).to eq 'fizz'
+  end
+
+  it "Writes buzz if the number is divisible by 5" do
+    fb = FizzBuzz.new
+    expect(fb.get(5)).to eq 'buzz'
+    expect(fb.get(10)).to eq 'buzz'
+  end
+
+  it "Writes fizzbuzz if the number is divisible by 3 and 5 simoultaneously" do
+    fb = FizzBuzz.new
+    expect(fb.get(15)).to eq 'fizzbuzz'
+    expect(fb.get(30)).to eq 'fizzbuzz'
   end
 
 end
